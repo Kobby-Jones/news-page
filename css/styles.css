@@ -3,10 +3,21 @@
     width: 100%;
     object-fit: cover;
 }
-.top-headlines{
+.all{
     background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
     height: 100%;
 }
 .sports{
      background: linear-gradient(to right, #1a2a6c, #b21f1f, #fdbb2d);
+     height: 100%;
+}
+#entertainment{
+    background: linear-gradient(to right, #7f00ff, #e100ff)
+}
+
+#business{
+    background: linear-gradient(to right, #06beb6, #48b1bf);
+}
+#technology{
+    background: linear-gradient(to right, #000000, #0f9b0f);
 }
