@@ -8,7 +8,6 @@ async function allReq() {
     let apiUrl = `https://inshorts.deta.dev/news?category=all`;
   const requests = await fetch(apiUrl);
   const json = await requests.json();
-  console.log(json);
     json.data.forEach((element) => {
       const html = `
         <div class="col-lg-6">
@@ -36,7 +35,6 @@ async function sportsReq() {
   let apiUrl = `https://inshorts.deta.dev/news?category=sports`;
   const requests = await fetch(apiUrl);
   const json = await requests.json();
-  console.log(json);
   json.data.forEach((element) => {
     const html = `
         <div class="col-lg-6">
@@ -64,7 +62,6 @@ async function entertainmentReq() {
   let apiUrl = `https://inshorts.deta.dev/news?category=entertainment`;
   const requests = await fetch(apiUrl);
   const json = await requests.json();
-  console.log(json);
   json.data.forEach((element) => {
     const html = `
         <div class="col-lg-6">
@@ -89,10 +86,9 @@ async function entertainmentReq() {
 
 
 async function businessReq() {
-  let apiUrl = `https://inshorts.deta.dev/news?category=entertainment`;
+  let apiUrl = `https://inshorts.deta.dev/news?category=business`;
   const requests = await fetch(apiUrl);
   const json = await requests.json();
-  console.log(json);
   json.data.forEach((element) => {
     const html = `
         <div class="col-lg-6">
@@ -117,10 +113,9 @@ async function businessReq() {
 
 
 async function techReq() {
-  let apiUrl = `https://inshorts.deta.dev/news?category=entertainment`;
+  let apiUrl = `https://inshorts.deta.dev/news?category=technology`;
   const requests = await fetch(apiUrl);
   const json = await requests.json();
-  console.log(json);
   json.data.forEach((element) => {
     const html = `
         <div class="col-lg-6">
