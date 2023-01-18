@@ -1,15 +1,17 @@
+
 const all = document.querySelector(".all-row");
 const sports = document.querySelector(".sports-row");
 const entertainment = document.querySelector(".entertainment-row");
 const business = document.querySelector(".business-row");
 const technology = document.querySelector(".technology-row");
+const owlClases = document.querySelector(".owl-carousel");
 
 async function allReq() {
-    let apiUrl = `https://inshorts.deta.dev/news?category=all`;
+  let apiUrl = `https://inshorts.deta.dev/news?category=all`;
   const requests = await fetch(apiUrl);
   const json = await requests.json();
-    json.data.forEach((element) => {
-      const html = `
+  json.data.forEach((element) => {
+    const html = `
         <div class="col-lg-6">
                 <div class="card mb-3">
                     <img src="${element.imageUrl}" class="card-img-top" alt="">
@@ -24,12 +26,10 @@ async function allReq() {
             </div>
         `;
 
-      if (element.imageUrl != null) {
-          all.innerHTML += html;
-          
-    } 
+    if (element.imageUrl != null) {
+      all.innerHTML += html;
+    }
   });
-    
 }
 async function sportsReq() {
   let apiUrl = `https://inshorts.deta.dev/news?category=sports`;
@@ -57,7 +57,6 @@ async function sportsReq() {
   });
 }
 
-
 async function entertainmentReq() {
   let apiUrl = `https://inshorts.deta.dev/news?category=entertainment`;
   const requests = await fetch(apiUrl);
@@ -84,7 +83,6 @@ async function entertainmentReq() {
   });
 }
 
-
 async function businessReq() {
   let apiUrl = `https://inshorts.deta.dev/news?category=business`;
   const requests = await fetch(apiUrl);
@@ -110,7 +108,6 @@ async function businessReq() {
     }
   });
 }
-
 
 async function techReq() {
   let apiUrl = `https://inshorts.deta.dev/news?category=technology`;
