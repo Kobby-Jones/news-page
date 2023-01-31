@@ -13,7 +13,7 @@ async function allReq() {
   json.data.forEach((element) => {
     const html = `
         <div class="col-lg-6">
-                <div class="card mb-3">
+                <div class="card mb-3" data-aos="fade-in">
                     <img src="${element.imageUrl}" class="card-img-top" alt="">
                     <div class="card-body">
                         <h5 class="card-title">${element.title}</h5>
@@ -38,7 +38,7 @@ async function sportsReq() {
   json.data.forEach((element) => {
     const html = `
         <div class="col-lg-6">
-                <div class="card mb-3">
+                <div class="card mb-3" data-aos="fade-in">
                     <img src="${element.imageUrl}" class="card-img-top" alt="">
                     <div class="card-body">
                         <h5 class="card-title">${element.title}</h5>
@@ -64,7 +64,7 @@ async function entertainmentReq() {
   json.data.forEach((element) => {
     const html = `
         <div class="col-lg-6">
-                <div class="card mb-3">
+                <div class="card mb-3" data-aos="fade-in">
                     <img src="${element.imageUrl}" class="card-img-top" alt="">
                     <div class="card-body">
                         <h5 class="card-title">${element.title}</h5>
@@ -90,7 +90,7 @@ async function businessReq() {
   json.data.forEach((element) => {
     const html = `
         <div class="col-lg-6">
-                <div class="card mb-3">
+                <div class="card mb-3" data-aos="fade-in">
                     <img src="${element.imageUrl}" class="card-img-top" alt="">
                     <div class="card-body">
                         <h5 class="card-title">${element.title}</h5>
@@ -115,7 +115,7 @@ async function techReq() {
   const json = await requests.json();
   json.data.forEach((element) => {
     const html = `
-        <div class="col-lg-6">
+        <div class="col-lg-6" data-aos="fade-in">
                 <div class="card mb-3">
                     <img src="${element.imageUrl}" class="card-img-top" alt="">
                     <div class="card-body">
@@ -139,3 +139,12 @@ sportsReq();
 entertainmentReq();
 businessReq();
 techReq();
+
+AOS.init({
+  offset: 120, // offset (in px) from the original trigger point
+  delay: 0, // values from 0 to 3000, with step 50ms
+  duration: 400, // values from 0 to 3000, with step 50ms
+  easing: "ease", // default easing for AOS animations
+  once: false, // whether animation should happen only once - while scrolling down
+  mirror: false,
+});
