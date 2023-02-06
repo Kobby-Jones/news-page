@@ -25,7 +25,6 @@ async function allReq() {
                 </div>
             </div>
         `;
-
     if (element.imageUrl != null) {
       all.innerHTML += html;
     }
@@ -56,7 +55,6 @@ async function sportsReq() {
     }
   });
 }
-
 async function entertainmentReq() {
   let apiUrl = `https://inshorts.deta.dev/news?category=entertainment`;
   const requests = await fetch(apiUrl);
@@ -76,13 +74,11 @@ async function entertainmentReq() {
                 </div>
             </div>
         `;
-
     if (element.imageUrl != null) {
       entertainment.innerHTML += html;
     }
   });
 }
-
 async function businessReq() {
   let apiUrl = `https://inshorts.deta.dev/news?category=business`;
   const requests = await fetch(apiUrl);
@@ -102,13 +98,11 @@ async function businessReq() {
                 </div>
             </div>
         `;
-
     if (element.imageUrl != null) {
       business.innerHTML += html;
     }
   });
 }
-
 async function techReq() {
   let apiUrl = `https://inshorts.deta.dev/news?category=technology`;
   const requests = await fetch(apiUrl);
@@ -128,7 +122,6 @@ async function techReq() {
                 </div>
             </div>
         `;
-
     if (element.imageUrl != null) {
       technology.innerHTML += html;
     }
