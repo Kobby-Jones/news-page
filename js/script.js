@@ -24,6 +24,10 @@ async function allReq(apiUrl) {
   });
 }
 allReq(allUrl);
+allReq(sports)
+allReq(entertainmentUrl)
+allReq(businessiUrl)
+allReq(techUrl)
 
 
 function createNewsCard(news) {
@@ -164,7 +168,7 @@ async function techReq() {
   });
 }
 // allReq();
-sportsReq();
-entertainmentReq();
-businessReq();
-techReq();
+// sportsReq();
+// entertainmentReq();
+// businessReq();
+// techReq();
