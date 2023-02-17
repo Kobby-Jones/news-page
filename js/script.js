@@ -5,11 +5,15 @@ const entertainment = document.querySelector(".entertainment-row");
 const business = document.querySelector(".business-row");
 const technology = document.querySelector(".technology-row");
 const owlClases = document.querySelector(".owl-carousel");
+let allUrl = `https://inshorts.deta.dev/news?category=all`;
+let sportsUrl = `https://inshorts.deta.dev/news?category=sports`;
+let entertainmentUrl = `https://inshorts.deta.dev/news?category=entertainment`;
+let businessiUrl = `https://inshorts.deta.dev/news?category=business`;
+ let techUrl = `https://inshorts.deta.dev/news?category=technology`;
 
 
 
-async function allReq() {
-  let apiUrl = `https://inshorts.deta.dev/news?category=all`;
+async function allReq(apiUrl) {
   const requests = await fetch(apiUrl);
   const results = await requests.json();
   console.log(results)
@@ -19,13 +23,13 @@ async function allReq() {
     }
   });
 }
-allReq();
+allReq(allUrl);
 
 
 function createNewsCard(news) {
 // Create a column for the card
   let colDiv = document.createElement("div");
-  colDiv.classList.add("col-lg-12");
+  colDiv.classList.add("col-lg-6");
   // Create the card div
   let card = document.createElement("div");
   card.classList.add("card", "mb-3");
