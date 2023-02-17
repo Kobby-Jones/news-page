@@ -6,30 +6,62 @@ const business = document.querySelector(".business-row");
 const technology = document.querySelector(".technology-row");
 const owlClases = document.querySelector(".owl-carousel");
 
+
+
 async function allReq() {
   let apiUrl = `https://inshorts.deta.dev/news?category=all`;
   const requests = await fetch(apiUrl);
-  const json = await requests.json();
-  json.data.forEach((element) => {
-    const html = `
-        <div class="col-lg-6">
-                <div class="card mb-3" data-aos="fade-in">
-                    <img src="${element.imageUrl}" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <h5 class="card-title">${element.title}</h5>
-                        ${element.content}
-                    </div>
-                    <div class="text-center mb-3">
-                        <a href="${element.readMoreUrl}"><button class="btn btn-primary text-center">Read More</button></a>
-                    </div>
-                </div>
-            </div>
-        `;
+  const results = await requests.json();
+  console.log(results)
+  results.data.forEach((element) => {
     if (element.imageUrl != null) {
-      all.innerHTML += html;
+     createNewsCard(element)
     }
   });
 }
+allReq();
+
+
+function createNewsCard(news) {
+// Create a column for the card
+  let colDiv = document.createElement("div");
+  colDiv.classList.add("col-lg-12");
+  // Create the card div
+  let card = document.createElement("div");
+  card.classList.add("card", "mb-3");
+  // Crate the image and add it to the card
+  let cardImage = document.createElement("img");
+  cardImage.classList.add("card-img-top");
+  cardImage.src = news.imageUrl;
+  cardImage.alt = "";
+  card.appendChild(cardImage);
+  let cardBody = document.createElement("div");
+  cardBody.classList.add("card-body");
+  let title = document.createElement("h4");
+  title.classList.add("card-title");
+  title.innerText = news.title;
+  let cardText = document.createElement("p");
+  cardText.classList.add("card-text");
+  cardText.innerText = news.content
+  cardBody.appendChild(title);
+  cardBody.appendChild(cardText);
+  // Create the read more button and add it to the card
+  let readMoreDiv = document.createElement("div");
+  readMoreDiv.classList.add("text-center", "mb-3");
+  let readMoreAnchor = document.createElement("a");
+  readMoreAnchor.href = news.readMoreUrl;
+  let readMoreButton = document.createElement("button");
+  readMoreButton.classList.add("btn", "btn-primary", "text-center");
+  readMoreButton.innerText = "Read More"
+  readMoreAnchor.appendChild(readMoreButton);
+  readMoreDiv.appendChild(readMoreAnchor);
+  card.appendChild(cardBody);
+  card.appendChild(readMoreDiv);
+  colDiv.appendChild(card);
+  all.appendChild(colDiv); 
+}
+
+
 async function sportsReq() {
   let apiUrl = `https://inshorts.deta.dev/news?category=sports`;
   const requests = await fetch(apiUrl);
@@ -127,7 +159,7 @@ async function techReq() {
     }
   });
 }
-allReq();
+// allReq();
 sportsReq();
 entertainmentReq();
 businessReq();
