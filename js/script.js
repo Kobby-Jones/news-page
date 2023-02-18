@@ -33,7 +33,7 @@ allReq(techUrl, technology)
 function createNewsCard(news, categoryRow) {
 // Create a column for the card
   let colDiv = document.createElement("div");
-  colDiv.classList.add("col-lg-6");
+  colDiv.classList.add("col-lg-4");
   // Create the card div
   let card = document.createElement("div");
   card.classList.add("card", "mb-3");
@@ -50,7 +50,7 @@ function createNewsCard(news, categoryRow) {
   title.innerText = news.title;
   let cardText = document.createElement("p");
   cardText.classList.add("card-text");
-  cardText.innerText = news.content
+  cardText.innerText = news.content.substring(0, 80) + "....";
   cardBody.appendChild(title);
   cardBody.appendChild(cardText);
   // Create the read more button and add it to the card

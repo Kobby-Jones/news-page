@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Rubik+Mono+One&display=swap');
 
 .card-img-top{
-    height: 40vh;
-    width: 100%;
+    height: 300px;
+    max-width: 100%;
     object-fit: cover;
 }
 .all{
