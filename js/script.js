@@ -33,7 +33,7 @@ allReq(techUrl, technology)
 function createNewsCard(news, categoryRow) {
 // Create a column for the card
   let colDiv = document.createElement("div");
-  colDiv.classList.add("col-lg-4");
+  colDiv.classList.add("col-lg-6");
   // Create the card div
   let card = document.createElement("div");
   card.classList.add("card", "mb-3");
