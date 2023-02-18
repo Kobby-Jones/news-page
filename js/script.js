@@ -13,24 +13,24 @@ let businessiUrl = `https://inshorts.deta.dev/news?category=business`;
 
 
 
-async function allReq(apiUrl) {
+async function allReq(apiUrl, categoryRow) {
   const requests = await fetch(apiUrl);
   const results = await requests.json();
   console.log(results)
   results.data.forEach((element) => {
     if (element.imageUrl != null) {
-     createNewsCard(element)
+     createNewsCard(element, categoryRow)
     }
   });
 }
-allReq(allUrl);
-allReq(sports)
-allReq(entertainmentUrl)
-allReq(businessiUrl)
-allReq(techUrl)
+allReq(allUrl, all);
+allReq(sportsUrl, sports)
+allReq(entertainmentUrl, entertainment)
+allReq(businessiUrl, business)
+allReq(techUrl, technology)
 
 
-function createNewsCard(news) {
+function createNewsCard(news, categoryRow) {
 // Create a column for the card
   let colDiv = document.createElement("div");
   colDiv.classList.add("col-lg-6");
@@ -66,109 +66,8 @@ function createNewsCard(news) {
   card.appendChild(cardBody);
   card.appendChild(readMoreDiv);
   colDiv.appendChild(card);
-  all.appendChild(colDiv); 
+  categoryRow.appendChild(colDiv); 
 }
 
 
-async function sportsReq() {
-  let apiUrl = `https://inshorts.deta.dev/news?category=sports`;
-  const requests = await fetch(apiUrl);
-  const json = await requests.json();
-  json.data.forEach((element) => {
-    const html = `
-        <div class="col-lg-6">
-                <div class="card mb-3" data-aos="fade-in">
-                    <img src="${element.imageUrl}" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <h5 class="card-title">${element.title}</h5>
-                        ${element.content}
-                    </div>
-                    <div class="text-center mb-3">
-                        <a href="${element.readMoreUrl}"><button class="btn btn-primary text-center">Read More</button></a>
-                    </div>
-                </div>
-            </div>
-        `;
 
-    if (element.imageUrl != null) {
-      sports.innerHTML += html;
-    }
-  });
-}
-async function entertainmentReq() {
-  let apiUrl = `https://inshorts.deta.dev/news?category=entertainment`;
-  const requests = await fetch(apiUrl);
-  const json = await requests.json();
-  json.data.forEach((element) => {
-    const html = `
-        <div class="col-lg-6">
-                <div class="card mb-3" data-aos="fade-in">
-                    <img src="${element.imageUrl}" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <h5 class="card-title">${element.title}</h5>
-                        ${element.content}
-                    </div>
-                    <div class="text-center mb-3">
-                        <a href="${element.readMoreUrl}"><button class="btn btn-primary text-center">Read More</button></a>
-                    </div>
-                </div>
-            </div>
-        `;
-    if (element.imageUrl != null) {
-      entertainment.innerHTML += html;
-    }
-  });
-}
-async function businessReq() {
-  let apiUrl = `https://inshorts.deta.dev/news?category=business`;
-  const requests = await fetch(apiUrl);
-  const json = await requests.json();
-  json.data.forEach((element) => {
-    const html = `
-        <div class="col-lg-6">
-                <div class="card mb-3" data-aos="fade-in">
-                    <img src="${element.imageUrl}" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <h5 class="card-title">${element.title}</h5>
-                        ${element.content}
-                    </div>
-                    <div class="text-center mb-3">
-                        <a href="${element.readMoreUrl}"><button class="btn btn-primary text-center">Read More</button></a>
-                    </div>
-                </div>
-            </div>
-        `;
-    if (element.imageUrl != null) {
-      business.innerHTML += html;
-    }
-  });
-}
-async function techReq() {
-  let apiUrl = `https://inshorts.deta.dev/news?category=technology`;
-  const requests = await fetch(apiUrl);
-  const json = await requests.json();
-  json.data.forEach((element) => {
-    const html = `
-        <div class="col-lg-6">
-                <div class="card mb-3">
-                    <img src="${element.imageUrl}" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <h5 class="card-title">${element.title}</h5>
-                        ${element.content}
-                    </div>
-                    <div class="text-center mb-3">
-                        <a href="${element.readMoreUrl}"><button class="btn btn-primary text-center">Read More</button></a>
-                    </div>
-                </div>
-            </div>
-        `;
-    if (element.imageUrl != null) {
-      technology.innerHTML += html;
-    }
-  });
-}
-// allReq();
-// sportsReq();
-// entertainmentReq();
-// businessReq();
-// techReq();
