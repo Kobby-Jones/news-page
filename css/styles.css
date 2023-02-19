@@ -2,8 +2,9 @@
 body{
     padding: 0;
 }
-.container{
-    margin-right: 20px;
+.news-container{
+    margin-right: 0;
+   
     
 }
 .card-img-top{

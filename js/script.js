@@ -9,9 +9,15 @@ let allUrl = `https://inshorts.deta.dev/news?category=all`;
 let sportsUrl = `https://inshorts.deta.dev/news?category=sports`;
 let entertainmentUrl = `https://inshorts.deta.dev/news?category=entertainment`;
 let businessiUrl = `https://inshorts.deta.dev/news?category=business`;
- let techUrl = `https://inshorts.deta.dev/news?category=technology`;
+let techUrl = `https://inshorts.deta.dev/news?category=technology`;
+const catIcons = document.querySelectorAll(".category-icons");
+ let urlString = `https://inshorts.deta.dev/news?category=${catIcons.innerText}`;
 
-
+catIcons.forEach(icon => {
+  icon.addEventListener('click', function () {
+    allReq(urlString, all);
+  })
+})
 
 async function allReq(apiUrl, categoryRow) {
   const requests = await fetch(apiUrl);
