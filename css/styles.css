@@ -19,9 +19,20 @@ body{
 }
 #fixed-column{
     position: fixed;
-    top: 0;
+    top: 20px;
     bottom: 0;
 }
 #scrollable-column{
     margin-left: auto;
+}
+@media only screen and (max-width: 600px) {
+    
+    #scrollable-column{
+    width: 100%;
+}
+#fixed-column{
+    display: none;
+}
+
+
 }

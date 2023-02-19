@@ -74,7 +74,7 @@ function createNewsCard(news, categoryRow) {
   let readMoreAnchor = document.createElement("a");
   readMoreAnchor.href = news.readMoreUrl;
   let readMoreButton = document.createElement("button");
-  readMoreButton.classList.add("btn", "btn-primary", "text-center");
+  readMoreButton.classList.add("btn", "btn-danger", "text-center");
   readMoreButton.innerText = "Read More"
   readMoreAnchor.appendChild(readMoreButton);
   readMoreDiv.appendChild(readMoreAnchor);
