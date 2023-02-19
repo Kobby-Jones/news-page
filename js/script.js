@@ -11,13 +11,9 @@ let entertainmentUrl = `https://inshorts.deta.dev/news?category=entertainment`;
 let businessiUrl = `https://inshorts.deta.dev/news?category=business`;
 let techUrl = `https://inshorts.deta.dev/news?category=technology`;
 const catIcons = document.querySelectorAll(".category-icons");
- let urlString = `https://inshorts.deta.dev/news?category=${catIcons.innerText}`;
+ 
 
-catIcons.forEach(icon => {
-  icon.addEventListener('click', function () {
-    allReq(urlString, all);
-  })
-})
+
 
 async function allReq(apiUrl, categoryRow) {
   const requests = await fetch(apiUrl);
@@ -29,6 +25,19 @@ async function allReq(apiUrl, categoryRow) {
     }
   });
 }
+// catIcons.forEach((icon) => {
+//   icon.addEventListener("click", function () {
+//     // debugger;
+//     console.log(icon.innerText);
+//     let urlString = `https://inshorts.deta.dev/news?category=sports`;
+//     allReq(urlString, all);
+//   });
+// });
+
+// window.addEventListener("beforeunload", function (e) {
+//   e.preventDefault();
+//   e.returnValue = "";
+// });
 allReq(allUrl, all);
 allReq(sportsUrl, sports)
 allReq(entertainmentUrl, entertainment)
