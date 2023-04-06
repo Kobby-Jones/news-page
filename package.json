@@ -1,0 +1,20 @@
+{
+  "name": "news-page",
+  "version": "1.0.0",
+  "description": "A web page that accesses the Inshort News API and retrieve information on the Current news  on Sports, Entertainment, Business and Technology\r You can read more on any news head by clicking the Read More Button on each news head.\r You can checkout the page live [Here](https://kobby-jones.github.io/news-page/ \"Visit the page live\")",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kobby-Jones/news-page.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kobby-Jones/news-page/issues"
+  },
+  "homepage": "https://github.com/Kobby-Jones/news-page#readme"
+}

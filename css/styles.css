@@ -25,6 +25,9 @@ body{
 #scrollable-column{
     margin-left: auto;
 }
+.bg-dark{
+    background-color: brown;
+}
 @media only screen and (max-width: 600px) {
     
     #scrollable-column{
