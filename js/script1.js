@@ -16,14 +16,15 @@ async function fetchApi(api_url) {
       
   });
 }
-// search_text = search_input.value;
-// search_button.addEventListener('click', function () {
-//     console.log(search_text)
-//     homeFeed.innerHTML = "";
-//      fetchApi(
-//        `https://api.spaceflightnewsapi.net/v4/articles/?search=${search_text}`
-//      );
-// });
+search_button.addEventListener("click", function () {
+  const search_text = search_input.value; // Move this line here
+  console.log(search_text);
+  homeFeed.innerHTML = "";
+  fetchApi(
+    `https://api.spaceflightnewsapi.net/v4/articles/?search=${search_text}`
+  );
+});
+
 // Default data to return to the home page
 fetchApi(`https://api.spaceflightnewsapi.net/v4/articles/?limit=15`);
 
