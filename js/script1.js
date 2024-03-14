@@ -1,18 +1,39 @@
 
-async function fetchApi() {
-  const request = await fetch(`https://api.spaceflightnewsapi.net/v4/articles/?limit=30`);
+let mixed_data = [];
+const search_button = document.getElementById("search");
+const search_input = document.getElementById("search-input")
+const homeFeed = document.getElementById("home-feed");
+
+//  A function to make the API call
+async function fetchApi(api_url) {
+  const request = await fetch(api_url);
   const results = await request.json();
   reports = results.results;
   reports.forEach((data) => {
       create_News_Card(data)
-      console.log(data)
+      mixed_data.push(data)
+
+      
   });
 }
-fetchApi()
+// search_text = search_input.value;
+// search_button.addEventListener('click', function () {
+//     console.log(search_text)
+//     homeFeed.innerHTML = "";
+//      fetchApi(
+//        `https://api.spaceflightnewsapi.net/v4/articles/?search=${search_text}`
+//      );
+// });
+// Default data to return to the home page
+fetchApi(`https://api.spaceflightnewsapi.net/v4/articles/?limit=15`);
+
+mixed_data.forEach((item) => {
+    console.log(item)
+})
+// A function to create a card to populate the news data
 function create_News_Card(data) {
     const col = document.createElement('div')
     col.classList.add("col-lg-4");
-    const homeFeed = document.getElementById("home-feed")
     const newsCard = document.createElement("div");
     newsCard.classList.add("card", "text-center", "p-3");
     // Create The Image and add it to the card
@@ -32,7 +53,7 @@ function create_News_Card(data) {
     readMore_url.href = data.url;
     readMore_url.target = "_blank";
     const button = document.createElement("button");
-    button.classList.add("btn", "btn-secondary", "rounded-3");
+    button.classList.add("btn", "btn-primary", "rounded-3");
     button.innerText = "Read More";
     readMore_url.appendChild(button);
     newsCard.appendChild(readMore_url);
