@@ -21,6 +21,7 @@ async function allReq(apiUrl, categoryRow) {
      results.data.forEach((element) => {
        if (element.imageUrl != null) {
          createNewsCard(element, categoryRow);
+         console.log(element)
        }
      });
   } 
