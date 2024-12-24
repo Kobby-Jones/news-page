@@ -1,5 +1,5 @@
 // example.test.js
-test('adds 1 + 2 to equal 3', () => {
-    expect(1 + 2).toBe(3);
+test('adds 5 + 2 to equal 7', () => {
+    expect(5 + 2).toBe(7);
   });
   
